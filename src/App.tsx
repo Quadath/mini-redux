@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from './hooks';
-import { decrement, increment, incrementByValue } from './features/counterSlice';
+import { decrement, increment, incrementByValue } from './store/reducers/counterSlice';
+import { fetchUsers } from './features/fetchUsers';
+import './App.css';
+import { UserList } from './components/UserList';
 
 function App() {
 
@@ -18,14 +20,17 @@ function App() {
 
   return (
     <div className="App">
-      <p>{count}</p>
+      {/* <p>{count}</p>
       <button onClick={() => dispatch(increment())}>+</button>
       <button onClick={() => dispatch(decrement())}>-</button>
       <form onSubmit={(e) => handleSubmit(e)}>
         <label>Count</label>
         <input type='number' value={inc} onChange={(e) => setInc(parseInt(e.target.value))}/>
         <input type='submit' value="Submit"/>
-      </form>
+      </form> */}
+    <UserList/>
+
+
     </div>
   );
 }
